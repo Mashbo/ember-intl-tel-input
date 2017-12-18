@@ -138,6 +138,15 @@ export default Ember.Component.extend({
   }),
 
   /**
+   * Exclude the countries you specify
+   *
+   * @property excludeCountries
+   * @type Array
+   * @default "MOBILE"
+   */
+  excludeCountries: undefined,
+
+  /**
    * When setting `defaultCountry` to `"auto"`, we need to use a special
    * service to lookup the location data for the user. Write a custom method to
    * get the country code.
@@ -357,6 +366,7 @@ export default Ember.Component.extend({
     this.$().intlTelInput({
       autoHideDialCode: this.get('autoHideDialCode'),
       autoPlaceholder: this.get('autoPlaceholder'),
+      excludeCountries: this.get('excludeCountries'),
       initialCountry: this.get('initialCountry'),
       geoIpLookup: this.get('geoIpLookup'),
       nationalMode: this.get('nationalMode'),
